@@ -1,0 +1,59 @@
+<!doctype html>
+
+<html ng-app='tweetApp'>
+    <head>
+        <meta charset='utf-8'>
+
+        <title>Node/Angular Tweets App</title>
+
+        <link rel='stylesheet' href='/css/style.css'>
+        <link rel='stylesheet' href='../node_modules/font-awesome/css/font-awesome.min.css'>
+        <link rel='stylesheet' href='../node_modules/bootstrap/dist/css/bootstrap.min.css'>
+        <script src='../node_modules/angular/angular.min.js'></script>
+        <script src='../node_modules/angular-md5/angular-md5.min.js'></script>
+        <script src='/node_modules/angular-gravatar/build/angular-gravatar.min.js'></script>
+        <script src='/js/tweetApp.js'></script>
+        <script src='/js/services/tweetService.js'></script>
+        <script src='/js/controllers/mainCtr.js'></script>
+
+    </head>
+
+    <body ng-controller='tweetController'>
+        <div class=tweet-container>
+              <div id='tweet-form' class='text-center'>
+                <form  ng-submit='formData.email && formData.message && createTweet()'>
+                    <fieldset class='form-group'>
+                        <div class='form-field email'>
+                            <input type='email' class='form-control input-lg' placeholder='Email' ng-model='formData.email'>
+                        </div>
+                        <div class='form-field message'>
+                            <textarea class='form-control input-lg' maxlength='150' rows='2' placeholder='Message' ng-model='formData.message'></textarea>
+                        </div>
+                    </fieldset>
+
+                    <button type='submit' class='btn btn-primary submit-tweet'>SUBMIT</button>
+                </form>
+            </div>
+
+            <div class='tweet-list'>
+                <form class='tweet-search'>
+                    <span class='fa fa-search'></span>
+                    <input type='search' class='tweet-filter form-control input-lg' name='search' placeholder='Filter' ng-model='searchText'/>
+                </form>
+                
+                <div class='tweets-grid'>
+                    <div>{{errorPlace}}</div>
+                    <div class='tweet-row' ng-repeat='tweet in tweets | filter:searchText'>
+                        <img class='tweet-img' gravatar-src='tweet.email' gravatar-size='65'>
+                        <div class='tweet-details'>
+                            <div class='tweet-email'>{{ tweet.email }}</div> 
+                            <div class='tweet-text'>{{ tweet.message }} </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </body>
+    
+</html>

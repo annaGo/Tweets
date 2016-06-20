@@ -1,0 +1,17 @@
+{
+  "name": "BigPanda",
+  "version": "0.0.0",
+  "main": "server.js",
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-gravatar": "^0.4.2",
+    "angular-md5": "^0.1.10",
+    "body-parser": "^1.4.3",
+    "bootstrap": "^3.3.6",
+    "express": "^4.13.4",
+    "font-awesome": "^4.6.3",
+    "method-override": "^2.1.3",
+    "mongoose": "^4.4.12",
+    "mongoose-type-email": "^1.0.2"
+  }
+}
