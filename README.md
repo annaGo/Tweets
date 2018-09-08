@@ -1,4 +1,4 @@
-#Description
+# Description
 This project is creating a web page that contains a comment feed with the ability to insert new comments and filter the existing comments.
 
 Each comment has the gravatar (https://en.gravatar.com/) picture and the email of the responder. 
